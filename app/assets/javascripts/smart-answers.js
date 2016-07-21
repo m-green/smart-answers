@@ -1,5 +1,11 @@
+//= require start-button-ab-test-july-2016
+
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
+}
+
+function isExpectedPath(slug) { // Used mostly during A/B testing
+  return window.location.pathname.split("/").join("") == slug;
 }
 
 $(document).ready(function() {
