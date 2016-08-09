@@ -1,5 +1,13 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
+  <script>
+    var SmartAnswer = SmartAnswer || {};
+    <% if ajax_enabled_for?(@presenter.name) %>
+      SmartAnswer.AJAX_ENABLED = true;
+    <% else %>
+      SmartAnswer.AJAX_ENABLED = false;
+    <% end %>
+  </script>
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
